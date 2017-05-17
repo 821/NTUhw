@@ -1,0 +1,85 @@
+\title{臺北帝國大學文政學部史學科一般報告樣式模板}
+\author{南寧笑笑僧\footnote{\ttfamily 臺北帝國大學三民主義硏究所匪情及對匪鬥爭組碩鼠菸酒僧\newline
+  \hspace*{4ex}100 臺北市中正區思源街16--2號復明閣; email你懂的，不懂就算了}}
+
+\begin{document}
+
+\maketitle
+
+\section*{緣起}
+
+慶豐四年秋，南寧笑笑僧負笈埋冤。地利人和，百廢待興。乃修模板，依學報舊制，復刻各色樣式於其上。幸甚至哉，特作文以記之。
+
+以上是鬼扯。其實是貧僧常因標點之類蠢問題被釘得雨打沙灘萬點坑。爲了減輕恩師的工作量，以及讓貧僧自己的作業看起來不要那麼噁心，便發奮圖強，依帝大歷史學報撰寫模板(template)。\fcite{}{帝大歷史學報撰稿格式}{。但一般報告自無摘要之類元素。}又由於貧僧一年總有十二三個月不想用Microsoft Word，當然上\TeX（說得好像你會寫Word模板似的）。
+
+\section*{特色}
+
+帝大歷史學報有特出之引用格式：
+\begin{quote}
+中日韓文專書：作者，《書名》（出版地：出版者，公元年分），頁碼。\\
+中日韓文論文：作者，〈篇名〉，《刊物名稱》×卷×期（公元年份，出版地），頁碼。\\
+引用原版或影印版古籍，請務必註明版本與卷頁。影印版古籍請註明現代出版項。
+\end{quote}
+本模板均已考慮，且以近期刊載之論文爲重要參考，處理標點、空格等細部差異。程序可據文獻爲中日韓文或西文適配正確輔助文字及標點符號，排佈時中日韓在前，西文在後，且以筆畫排列。歷史文獻格式規則甚多，如筆畫排列之上，又有朝代及國籍排列，皆西文所無，本模板亦勉力實現。
+
+文獻引用外，本模板亦力圖重現帝大歷史學報樣式，如腳註用楷體等，此不一一。
+
+\section*{入門}
+
+開發環境：Windows 10 Education x64 (201607) + TeXLive 2016\footnote{\ttfamily 帝大有 cw\TeX 發行版，然其文檔竟敢利用小說反黨、利用字體偸婊我皇皇史學科，僅憑這點就該槍斃八十七次。}
+
+報告應在Report.tex撰寫，參考文獻則入ref.bib。如需微調格式，可修NTUHist.tex。NTUBib.tex用於提供基於biblatex之參考文獻樣式（獨立以便其他模板調用），Asian.tex處理東亞與西文之區別，cjkindent.sty爲中文段落宏包，一般用戶均不需理解。
+
+\section*{特有命令}
+
+\verb|\ccite{文獻}| 若腳註之中文文獻不需任何說明，可使用本命令。
+
+\verb|\ecite{文獻}| 若腳註之英文文獻不需任何說明，可使用本命令。
+
+\verb|\fcite{文獻前說明}{文獻}{文獻後說明}| 若腳註中需要說明文字，可使用本命令。
+
+得益於biblatex之驅動，本模板可將文獻分類輸出。目前暫分爲「史料文獻」與「近人硏究」\footnote{\ttfamily 此亦帝大歷史學報分法。}。塡ref.bib時，史料文獻需加形如 \verb|entrysubtype = {明},| 之語句（標記朝代，用於排序及標點，日本整理或撰寫之古籍標 \verb|entrysubtype = {日},| （似朝代而非也），海峽兩岸整理之古籍則加 \verb|keyword = {古籍},|，現代中日韓文需據語言加形如 \verb|language = {chinese},| 之語句（日韓論文還需手動在作者名字前加國籍）。
+
+\section*{文獻分類}
+
+\subsection*{網頁/online}
+史學科少用，而三研所較常用。
+
+\subsection*{文章/article}
+中文\ccite{明代家庭的權力結構及其成員間的關係}
+
+英文\ccite{WidowsinKinship}
+
+\subsection*{專書/book}
+中文\ccite{中國家庭史明清時期123}
+
+英文\ecite{Disgracefulmatters}
+
+\subsection*{章節/inbook}
+他編\ccite{清代法上的寡婦和訟師}
+
+自編\ccite{明清貞節的典型}
+
+\subsection*{叢書單本/incollection}
+因中文叢書常有子集，如四庫全書有「經」「史」「子」「集」四部，本模板自當處理。寫ref.bib時，booktitle入叢書名，booksubtitle入叢書子集。
+
+舉例\ccite{內則衍義}
+
+\subsection*{學位論文/thesis}
+舉例\ccite{由典範到規範}
+
+\subsection*{古籍影本/ancient}
+一般biblatex體系所無。舉例\ccite{十七史商榷}
+
+%若不需分類，可衹用\printbibliography。
+\section*{引用書目}
+
+\ttfamily\selectfont
+\begin{refcontext}[sorting = centy]
+\printbibliography[filter = {hsource}, title = {\large 一、史料文獻}]
+\end{refcontext}
+\begin{refcontext}[sorting = centy]
+\printbibliography[filter = {nothsource}, title = {\large 二、近人研究}]
+\end{refcontext}
+
+\end{document}

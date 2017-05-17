@@ -1,0 +1,280 @@
+\DeclareStyleSourcemap{
+	\maps{
+		\map[overwrite]{
+			\step[
+				fieldsource = language, match = \regexp{chinese|繁體中文|簡體中文|中文},
+				fieldset = userf, fieldvalue = {cc}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = language, match = \regexp{japanese|日文},
+				fieldset = userf, fieldvalue = {cj}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = language, match = \regexp{korean},
+				fieldset = userf, fieldvalue = {ck}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{周},
+				fieldset = userf, fieldvalue = {01046}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{春秋},
+				fieldset = userf, fieldvalue = {06770}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{戰國},
+				fieldset = userf, fieldvalue = {07476}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{秦},
+				fieldset = userf, fieldvalue = {08221}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{漢},
+				fieldset = userf, fieldvalue = {09202}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{三國},
+				fieldset = userf, fieldvalue = {10220}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{晉},
+				fieldset = userf, fieldvalue = {10266}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{北魏},
+				fieldset = userf, fieldvalue = {10386}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{東魏},
+				fieldset = userf, fieldvalue = {10534}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{西魏},
+				fieldset = userf, fieldvalue = {10535}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{北齊},
+				fieldset = userf, fieldvalue = {10550}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{北周},
+				fieldset = userf, fieldvalue = {10557}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{南朝宋},
+				fieldset = userf, fieldvalue = {10420}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{南朝齊},
+				fieldset = userf, fieldvalue = {10479}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{南朝梁|梁},
+				fieldset = userf, fieldvalue = {10502}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{南朝陳|陳},
+				fieldset = userf, fieldvalue = {10577}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{隋},
+				fieldset = userf, fieldvalue = {10581}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{唐},
+				fieldset = userf, fieldvalue = {10618}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{五代},
+				fieldset = userf, fieldvalue = {10907}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{宋},
+				fieldset = userf, fieldvalue = {10960}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{元},
+				fieldset = userf, fieldvalue = {11271}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{明},
+				fieldset = userf, fieldvalue = {11368}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{淸|清},
+				fieldset = userf, fieldvalue = {11616}
+			]
+		}
+		\map[overwrite]{
+			\step[
+				fieldsource = entrysubtype, match = \regexp{日},
+				fieldset = userf, fieldvalue = {cj}
+			]
+		}
+		\map{
+			\step[fieldset = userf, fieldvalue = {en}]
+		}
+	}
+}
+
+\newcommand{\cegen}[2]{\iffieldequalstr{userf}{en}{#2}{#1}}
+
+\DeclareSortingScheme{centy}{
+	\sort{\field{presort}}
+	\sort[final]{\field{sortkey}}
+	\sort{
+		\field{userf}
+	}
+	\sort{
+		\field{sortname}
+		\field{author}
+		\field{editor}
+		\field{translator}
+		\field{sorttitle}
+		\field{title}
+	}
+	\sort{
+		\field{sorttitle}
+		\field{title}
+	}
+	\sort{
+		\field{sortyear}
+		\field{year}
+	}
+}
+
+\DeclareSortingScheme{ecnty}{
+	\sort{\field{presort}}
+	\sort[final]{\field{sortkey}}
+	\sort[direction = descending]{
+		\field{userf}
+	}
+	\sort{
+		\field{sortname}
+		\field{author}
+		\field{editor}
+		\field{translator}
+		\field{sorttitle}
+		\field{title}
+	}
+	\sort{
+		\field{sorttitle}
+		\field{title}
+	}
+	\sort{
+		\field{sortyear}
+		\field{year}
+	}
+}
+
+
+\DefineBibliographyStrings{english}{
+	andmore = {\cegen{等}{\mkbibemph{et\addabbrvspace al\adddot}}},
+	andothers = {\cegen{等}{\mkbibemph{et\addabbrvspace al\adddot}}},
+	and = {\cegen{與}{and}},
+	bibliography = {引用書目},
+	references = {引用書目},
+	bytranslator = {\cegen{譯}{trans\adddot}},
+	number = {\cegen{}{no\adddot}}
+}
+
+\newcommand*\clguillemet{《}
+\newcommand*\crguillemet{》}
+\newcommand*\clchevron{〈}
+\newcommand*\crchevron{〉}
+\newcommand*\cbscomma{、}
+\newcommand*\cldquot{“}
+\newcommand*\crdquot{”}
+\newcommand*\ccomma{，}
+\newcommand*\cscolon{；}
+\newcommand*\ccolon{：}
+\newcommand*\cperiod{。}
+
+\newcommand*{\cecomma}{\cegen{\ccomma}{\addcomma\addspace}}
+\newcommand*{\cecolon}{\cegen{\ccolon}{\addcolon\addspace}}
+\newcommand*{\cescolon}{\cegen{\cscolon}{\addscolon\addspace}}
+\newcommand*{\ceperiod}{\cegen{\cperiod}{\addperiod\addspace}}
+\newcommand*{\cespace}{\cegen{}{\addspace}}
+\newcommand*\celbracket{\cegen{（}{(}}
+\newcommand*\cerbracket{\cegen{）}{)}}
+\newcommand*{\cebracket}[1]{\celbracket{#1}\cerbracket}
+
+\renewcommand*{\finalnamedelim}{\cegen{與}{\addspace\bibstring{and}\space}}
+\renewcommand*{\multinamedelim}{\cegen{\cbscomma}{\addcomma\addspace}} % modified: Chinese back-sloping comma between authors
+\renewcommand*{\andothersdelim}{\cespace}
+\renewcommand*{\postnotedelim}{\cecomma}
+\renewcommand*{\finentrypunct}{\cegen{\cperiod}{.}} % 文獻結尾
+\renewcommand{\bibendnotewrapper}[1]{\bibsentence #1\cperiod}
+\renewcommand{\bibfootnotewrapper}[1]{\bibsentence #1\cperiod}
+\renewcommand*{\newunitpunct}{\ceperiod}
+\renewcommand*{\newcunitpunct}{\cecomma}
+\renewcommand*{\entrysetpunct}{\cescolon}
+\renewcommand*{\labelnamepunct}{\newunitpunct} % 年號之類
+\renewcommand*{\subtitlepunct}{\newunitpunct}
+\renewcommand*{\intitlepunct}{\cecolon}
+\renewcommand*{\bibpagespunct}{\cecomma}
+\renewcommand*{\bibpagerefpunct}{}
+\renewcommand*{\revsdnamepunct}{\cecomma}
+\renewcommand*{\postvolpunct}{\addcolon\addspace}
+\newcommand*{\cearticle}[1]{\cegen{\clchevron{#1}\crchevron}{\mkbibquote{#1}}}
+\newcommand*{\cebook}[1]{\cegen{\clguillemet{#1}\crguillemet}{\emph{#1}}}
+\newcommand*{\ceinbook}[1]{\cegen{\clguillemet{#1}\crguillemet}{\emph{#1}\addperiod}}
+\renewcommand*{\bibnamedash}{
+  \cegen{― ―}{
+  \ifdimless{\leftmargin}{0.75em}
+    {\mbox{\textemdash\space}}
+    {\makebox[\leftmargin][l]{%
+       \ifdimless{\leftmargin}{1.25em}
+         {\textendash}
+         {\textemdash}}}}}
